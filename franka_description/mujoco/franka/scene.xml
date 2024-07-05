@@ -2,6 +2,7 @@
 
   <include file="panda.xml"/>
   
+  <include file="../custom/assets/objects/door_w_revolute_lock.xml"/>
 
   <statistic center="0.3 0 0.4" extent="1"/>
 
