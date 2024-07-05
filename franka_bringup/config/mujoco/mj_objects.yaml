@@ -1,3 +1,8 @@
 objects:
-  - "obj_box_01"
-  - "sphere_01"
+  # - "obj_box_01"
+  # - "sphere_01"
+  - "door"
+  - "frame"
+  - "panel"
+  - "handle"
+  - "handle_site"
