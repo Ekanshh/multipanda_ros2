@@ -38,11 +38,13 @@ find_package(Boost COMPONENTS thread chrono REQUIRED)
 
 # Mujoco dependencies
 set(OpenGL_GL_PREFERENCE GLVND)
-set(Mujoco_DIR ~/Libraries/mujoco_build/lib/cmake) # Change this to your value
+set(Mujoco_DIR ~/Documents/thesis/code_ws/src/repos/mujoco/build/install/lib/cmake) # Change this to your value
+set(EIGEN3_INCLUDE_DIRS ~/Documents/thesis/code_ws/src/repos/eigen_3.3.9/build/install/share/eigen3/cmake)
+
 find_package(glfw3 3.3 REQUIRED)     # GLFW3 here,
 find_package(mujoco REQUIRED PATHS ${Mujoco_DIR} NO_DEFAULT_PATH)
 find_package(yaml-cpp REQUIRED)
-find_package(Eigen3 REQUIRED)
+find_package(Eigen3 REQUIRED PATHS ${EIGEN3_INCLUDE_DIRS} NO_DEFAULT_PATH)
 add_library(franka_hardware
         SHARED
         src/franka_multi_hardware_interface.cpp
@@ -56,6 +58,13 @@ add_library(franka_hardware
         src/control_mode.cpp
         src/helper_functions.cpp
 )
+
+Message("Eigen3 include dirs: ${EIGEN3_INCLUDE_DIRS}")
+Message("Eigen3 version: ${EIGEN3_VERSION_STRING}")
+Message("MuJoCo include dirs: ${Mujoco_DIR}")
+Message("MuJoCo version: ${mujoco_VERSION}")
+Message("Libfranka include dirs: ${Franka_INCLUDE_DIRS}")
+Message("Libfranka version: ${Franka_VERSION}")
 
 target_include_directories(
         franka_hardware
