@@ -41,6 +41,18 @@ int main(int argc, char* argv[]) {
     current_pose.orientation.z,
     current_pose.orientation.w);
 
+  // Get joint configuration
+  std::vector<double> joint_values = move_group_interface.getCurrentJointValues();
+  // Print
+  RCLCPP_INFO(node->get_logger(), "Joint values: %f %f %f %f %f %f %f",
+    joint_values[0],
+    joint_values[1],
+    joint_values[2],
+    joint_values[3],
+    joint_values[4],
+    joint_values[5],
+    joint_values[6]);
+    
   // Shutdown ROS
   rclcpp::shutdown();
   spinner.join();

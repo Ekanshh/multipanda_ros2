@@ -349,7 +349,7 @@ Visualization Manager:
         Interactive Marker Size: 0.30000001192092896
         Joint Violation Color: 255; 0; 255
         Planning Group: panda_arm
-        Query Goal State: true
+        Query Goal State: false
         Query Start State: false
         Show Workspace: false
         Start State Alpha: 1
@@ -518,7 +518,7 @@ Visualization Manager:
       Pitch: 0.6753981113433838
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.703577518463135
+      Yaw: 4.693577289581299
     Saved: ~
 Window Geometry:
   Displays:
