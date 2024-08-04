@@ -42,15 +42,18 @@ set(Mujoco_DIR ~/Documents/thesis/code_ws/src/repos/mujoco/build/install/lib/cma
 set(EIGEN3_INCLUDE_DIRS ~/Documents/thesis/code_ws/src/repos/eigen_3.3.9/build/install/share/eigen3/cmake)
 
 find_package(glfw3 3.3 REQUIRED)     # GLFW3 here,
-find_package(mujoco REQUIRED PATHS ${Mujoco_DIR} NO_DEFAULT_PATH)
+find_package(mujoco REQUIRED)
 find_package(yaml-cpp REQUIRED)
 find_package(Eigen3 REQUIRED PATHS ${EIGEN3_INCLUDE_DIRS} NO_DEFAULT_PATH)
 add_library(franka_hardware
         SHARED
         src/franka_multi_hardware_interface.cpp
         src/franka_mujoco_multi_hardware_interface.cpp
+        src/garmi_mujoco_hardware_interface.cpp
         src/robot.cpp
         src/robot_sim.cpp
+        src/mobile_base_sim.cpp
+        src/garmi_head_sim.cpp
         src/franka_param_service_server.cpp
         src/franka_error_recovery_service_server.cpp
         src/gripper_sim_action_server.cpp
