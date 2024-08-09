@@ -117,7 +117,8 @@ public:
             // }
             // std::cout << d_->time - simstart << std::endl;
 
-            {
+            { 
+                opt_.frame = mjFRAME_WORLD; // Display the world frame
                 mjv_updateScene(m_, d_, &opt_, NULL, &cam_, mjCAT_ALL, &scn_);
                 mjr_render(viewport, &scn_, &con_);
             }
