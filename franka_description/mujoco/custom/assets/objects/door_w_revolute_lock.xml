@@ -2,9 +2,9 @@
 <!-- from https://github.com/vikashplus/mj_envs/tree/master/mj_envs/hand_manipulation_suite/assets -->
 <!-- Information about door can be found in this paper: https://arxiv.org/pdf/1709.10087.pdf -->
 
-<mujoco model="door">
-  <compiler angle="radian" autolimits="true"/>
-  <option integrator="implicitfast"/>
+<mujocoinclude>
+  <!-- <compiler angle="radian" autolimits="true"/>
+  <option integrator="implicitfast"/> -->
   <asset>
     <texture file="../textures/light-wood.png" type="cube" name="light-wood" />
     <texture file="../textures/dark-wood.png" type="cube" name="dark-wood" />
@@ -14,26 +14,26 @@
     <material name="MatLightWood" texture="light-wood" texrepeat="3 3" specular="0.4" shininess="0.1" />
   </asset>
     <worldbody>
-      <body name="door" pos="-0. -0.05 -0.5" quat="0 0 0 1">
-        <body name="frame" pos="0.5 0.2 1" quat="0.707388 0 0 -0.706825">
-            <inertial pos="0.3 0 0" quat="0.5 0.5 0.5 0.5" mass="7.85398" diaginertia="0.923301 0.764585 0.168533" />
-            <geom name="framer_geom" size="0.03 0.3" pos="0.555 0 0" type="cylinder" rgba="1 1 1 1" group="0" />
-            <geom name="framel_geom" size="0.03 0.3" pos="0.045 0 0" type="cylinder" rgba="1 1 1 1" group="0" />
-            <body name="panel" pos="0.3 0 0">
-                <inertial pos="0.0296816 -0.00152345 0" quat="0.701072 0 0 0.713091" mass="2.43455" diaginertia="0.0913751 0.0521615 0.043714" />
-                <geom name="panel_geom" type="box" group="0" size="0.22 0.02 .29" material="MatDarkWood" friction="1 1 1" />
-                <joint name="panel_hinge" type="hinge" group="0" pos="0.255 0 0" axis="0 0 1" range="0 1.57" limited="auto" damping="1" frictionloss="1" stiffness="1"/>
-                <body name="handle" pos="-0.175 0 -0.025">
-                    <inertial pos="-0.017762 0.0138544 0" quat="0.365653 0.605347 -0.36522 0.605365" mass="1" diaginertia="0.0483771 0.0410001 0.0111013" />
-                    <joint name="latch_joint" pos="0 0 0" axis="0 1 0" range="0 1.57" frictionloss="0.1" damping="0.5" limited="true" stiffness="1" />
-                    <geom fromto="0 0.0625 0 0 -0.170 0" size="0.025" type="cylinder" group="0" name="handle_base" material="MatMetal"/>
-                    <geom size="0.075 0.015 0.02" pos="0.075 -0.15 0" type="box" group="0" name="handle" material="MatMetal"/>
-                    <geom size="0.025 0.0125 0.03125" pos="-0.03125 0.05 0" quat="0.707388 0 0.706825 0" type="box" group="0" name="latch" material="MatMetal"/>
-                    <geom size="0.025 0.0125" pos="-0.0625 0.05 0" quat="0.707388 0.706825 0 0" type="cylinder" group="0" name="latch_tip" material="MatMetal"/>
-                    <!-- Don't render the door handle site by default -->
-                    <site name="handle_site" pos="0.125 -0.15 0" size="0.02" group="0"/>
-                </body>
+      <body name="door" pos="0 0 0" quat="0 0 0 1">
+        <body name="frame" pos="0.5 0.25 0.5" quat="0.707388 0 0 -0.706825">
+          <inertial pos="0.3 0 0" quat="0.5 0.5 0.5 0.5" mass="7.85398" diaginertia="0.923301 0.764585 0.168533" />
+          <geom name="framer_geom" size="0.03 0.3" pos="0.555 0 0" type="cylinder" rgba="1 1 1 1" group="0" />
+          <geom name="framel_geom" size="0.03 0.3" pos="0.045 0 0" type="cylinder" rgba="1 1 1 1" group="0" />
+          <body name="panel" pos="0.3 0 0">
+            <inertial pos="0.0296816 -0.00152345 0" quat="0.701072 0 0 0.713091" mass="2.43455" diaginertia="0.0913751 0.0521615 0.043714" />
+            <geom name="panel_geom" type="box" group="0" size="0.22 0.02 .29" material="MatDarkWood" friction="1 1 1" />
+            <joint name="panel_hinge" type="hinge" group="0" pos="0.255 0 0" axis="0 0 1" range="0 1.57" limited="auto" damping="1" frictionloss="1" stiffness="1"/>
+            <body name="handle" pos="-0.175 0 -0.025">
+              <inertial pos="-0.017762 0.0138544 0" quat="0.365653 0.605347 -0.36522 0.605365" mass="1" diaginertia="0.0483771 0.0410001 0.0111013" />
+              <joint name="latch_joint" pos="0 0 0" axis="0 1 0" range="0 1.57" frictionloss="0.1" damping="0.5" limited="true" stiffness="1" />
+              <geom fromto="0 0.0625 0 0 -0.170 0" size="0.025" type="cylinder" group="0" name="handle_base" material="MatMetal"/>
+              <geom size="0.075 0.015 0.02" pos="0.075 -0.15 0" type="box" group="0" name="handle" material="MatMetal"/>
+              <geom size="0.025 0.0125 0.03125" pos="-0.03125 0.05 0" quat="0.707388 0 0.706825 0" type="box" group="0" name="latch" material="MatMetal"/>
+              <geom size="0.025 0.0125" pos="-0.0625 0.05 0" quat="0.707388 0.706825 0 0" type="cylinder" group="0" name="latch_tip" material="MatMetal"/>
+              <!-- Don't render the door handle site by default -->
+              <site name="handle_site" pos="0.125 -0.15 0" size="0.02" group="0"/>
             </body>
+          </body>
         </body>
       </body>
     </worldbody>
@@ -42,4 +42,4 @@
         <general name="panel" joint="panel_hinge" forcerange="-10 10" ctrlrange="-10 10"/>
         <general name="latch" joint="latch_joint" forcerange="-10 10" ctrlrange="-10 10" />
     </actuator>
-</mujoco>
+</mujocoinclude>
